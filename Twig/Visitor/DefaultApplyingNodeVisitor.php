@@ -45,12 +45,13 @@ final class DefaultApplyingNodeVisitor implements NodeVisitorInterface
             return $node;
         }
 
-        if (!($node instanceof FilterExpression && 'desc' === $node->getAttribute('twig_callable')->getName())) {
+        if (!($node instanceof FilterExpression && $node->hasAttribute('twig_callable') && 'desc' === $node->getAttribute('twig_callable')->getName())) {
             return $node;
         }
 
         $transNode = $node->getNode('node');
         while ($transNode instanceof FilterExpression
+                   && $transNode->hasAttribute('twig_callable')
                    && 'trans' !== $transNode->getAttribute('twig_callable')->getName()
                    && 'transchoice' !== $transNode->getAttribute('twig_callable')->getName()) {
             $transNode = $transNode->getNode('node');
@@ -58,6 +59,10 @@ final class DefaultApplyingNodeVisitor implements NodeVisitorInterface
 
         if (!$transNode instanceof FilterExpression) {
             throw new \RuntimeException('The "desc" filter must be applied after a "trans", or "transchoice" filter.');
+        }
+
+        if (!$transNode->hasAttribute('twig_callable')) {
+            return $node;
         }
 
         $wrappingNode = $node->getNode('node');
