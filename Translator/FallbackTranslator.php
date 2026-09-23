@@ -39,9 +39,6 @@ final class FallbackTranslator implements TranslatorInterface
      */
     private $defaultLocale;
 
-    /**
-     * @param NewTranslatorInterface $symfonyTranslator
-     */
     public function __construct(string $defaultLocale, NewTranslatorInterface $symfonyTranslator, Translator $externalTranslator)
     {
         if (!$symfonyTranslator instanceof LocaleAwareInterface) {
@@ -120,7 +117,6 @@ final class FallbackTranslator implements TranslatorInterface
 
     public function getCatalogues(): array
     {
-
         return $this->symfonyTranslator->getCatalogues();
     }
 

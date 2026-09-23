@@ -40,7 +40,6 @@ final class CacheClearer
 
     public function __construct(string $kernelCacheDir, TranslatorInterface $translator, Filesystem $filesystem)
     {
-
         $this->kernelCacheDir = $kernelCacheDir;
         $this->translator = $translator;
         $this->filesystem = $filesystem;

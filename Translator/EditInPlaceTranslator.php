@@ -40,9 +40,6 @@ final class EditInPlaceTranslator implements TranslatorInterface
      */
     private $requestStack;
 
-    /**
-     * @param NewTranslatorInterface $translator
-     */
     public function __construct(NewTranslatorInterface $translator, ActivatorInterface $activator, RequestStack $requestStack)
     {
         if (!$translator instanceof LocaleAwareInterface) {
