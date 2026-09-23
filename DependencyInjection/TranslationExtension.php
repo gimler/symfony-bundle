@@ -71,7 +71,6 @@ class TranslationExtension extends Extension
 
         if ($config['edit_in_place']['enabled']) {
             $loader->load('edit_in_place.yaml');
-            $legacyLoader->load('edit_in_place.php');
             $this->enableEditInPlace($container, $config);
         }
 
