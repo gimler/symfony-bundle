@@ -44,12 +44,9 @@ class TranslationExtension extends Extension
         $configuration = new Configuration($container);
         $config = $this->processConfiguration($configuration, $configs);
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $legacyLoader = new Loader\PhpFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/legacy'));
 
         $loader->load('services.yaml');
-        $legacyLoader->load('services.php');
         $loader->load('extractors.yaml');
-        $legacyLoader->load('extractors.php');
 
         // Add major version to extractor
         $container->getDefinition(FormTypeChoices::class)
@@ -90,7 +87,6 @@ class TranslationExtension extends Extension
         }
 
         $loader->load('console.yaml');
-        $legacyLoader->load('console.php');
     }
 
     /**
