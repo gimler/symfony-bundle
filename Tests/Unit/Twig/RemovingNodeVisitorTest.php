@@ -11,7 +11,6 @@
 
 namespace Translation\Bundle\Tests\Unit\Twig;
 
-use Symfony\Component\HttpKernel\Kernel;
 
 /**
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
