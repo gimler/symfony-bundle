@@ -38,6 +38,7 @@ abstract class BaseTestCase extends KernelTestCase
         $kernel = self::createKernel();
 
         $kernel->addTestConfig(__DIR__.'/app/config/default.yaml');
+        $kernel->addTestRoutingFile(__DIR__.'/app/config/routing.yaml');
 
         $kernel->addTestBundle(TwigBundle::class);
         $kernel->addTestBundle(TranslationBundle::class);

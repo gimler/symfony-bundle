@@ -14,7 +14,6 @@ namespace Translation\Bundle\Tests\Functional\Command;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 use Translation\Bundle\Catalogue\CatalogueFetcher;
-use Translation\Bundle\Command\ExtractCommand;
 use Translation\Bundle\Model\Metadata;
 use Translation\Bundle\Service\ConfigurationManager;
 use Translation\Bundle\Tests\Functional\BaseTestCase;
@@ -71,7 +70,6 @@ XML
         $application = new Application($this->testKernel);
 
         $container = $this->testKernel->getContainer();
-        $application->add($container->get(ExtractCommand::class));
 
         $configuration = 'app';
 
